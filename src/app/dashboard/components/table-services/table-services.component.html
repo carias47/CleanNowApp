@@ -1,0 +1,83 @@
+<div>
+  <h4 class="mt-4">4. Planes recomendados</h4>
+
+  <div>
+    <label class="form-label">Selecciona una opción:</label>
+    <select class="form-select" [(ngModel)]="opcionSeleccionada" (change)="onChangeSeleccion()">
+      <option value="" selected disabled>Selecciona un plan</option>
+      <option *ngFor="let plan of planes" [ngValue]="plan">
+        {{ plan.namePlan }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="loading" class="text-center mt-3">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!loading">
+    <div *ngIf="
+        opcionSeleccionada && planesRecomended && planesRecomended.length === 0;
+        else planesDiv
+      ">
+      <h5 class="mt-3">
+        No hay categorías disponibles.
+        <button
+          onclick="window.location.href='https://web.whatsapp.com/send?phone=3133054963&text=Hola,%20necesito%20ayuda'"
+          target="_blank" rel="noopener noreferrer">
+          <i class="bx bxl-whatsapp"></i> Hablar con un Asesor
+        </button>
+      </h5>
+    </div>
+
+    <ng-template #planesDiv>
+      <!-- <div *ngIf="diasAcordesPlan; else planesAcordados">
+        <span
+          >usted solo puede agregar {{ opcionSeleccionada.days }} días acorde al
+          plan seleccionado</span
+        >
+      </div> -->
+      <div *ngIf="opcionSeleccionada">
+        <h4 class="mt-4">5. Arma tu plan</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="4" class="table-header">
+                <h4>
+                  Plan: {{ opcionSeleccionada?.namePlan }}-{{opcionSeleccionada.days}} días (Ahorras el
+                  {{ opcionSeleccionada?.discount }}%)
+                </h4>
+                <p>{{ opcionSeleccionada?.description }}</p>
+                {{ opcionSeleccionada?.price }}
+              </th>
+            </tr>
+            <tr class="table-subheader">
+              <th></th>
+              <th scope="col">Características / Plan</th>
+              <th>Inversión</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of planesRecomended; let i = index" class="table-row">
+              <td>
+                <input type="checkbox" [checked]="item.active" (change)="calculateSubtotal(item)" />
+              </td>
+              <td scope="row">
+                <span *ngIf="item.active; else crossIcon">
+                  <i class="bx bx-check"></i>
+                </span>
+                <ng-template #crossIcon>
+                  <i class="bx bx-x"></i>
+                </ng-template>
+                {{ i + 1 }} {{ item.name }}
+              </td>
+              <td>{{ item.price }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </div>
+</div>

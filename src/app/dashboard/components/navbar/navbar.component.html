@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg shadow-lg" style="background: rgb(16 49 65)">
+  <div class="container-xxl">
+
+    <!-- Logo mobile -->
+    <a class="navbar-brand d-block d-lg-none" href="#">
+      <img
+        src="https://cdn02.webit.com/api/v1/Image/5CC435B3348C1BC18034CDC92BFE186A/5CC435B3348C1BC18034CDC92BFE186A.png?size=1280x960" />
+    </a>
+
+    <!-- Logo desktop -->
+    <a class="navbar-brand d-none d-lg-block" href="#">
+      <img
+        src="https://cdn02.webit.com/api/v1/Image/5CC435B3348C1BC18034CDC92BFE186A/5CC435B3348C1BC18034CDC92BFE186A.png?size=1280x960" />
+    </a>
+
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="hamburger">
+        <div class="_layer -top"></div>
+        <div class="_layer -mid"></div>
+        <div class="_layer -bottom"></div>
+      </div>
+    </button>
+
+    <!-- Menú principal -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link custom-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link custom-link" href="#">Créditos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link custom-link" href="#">Contáctenos</a>
+        </li>
+
+        <!-- Usuario -->
+        <li class="nav-item ps-lg-3">
+          <div class="dropdown">
+            <a *ngIf="user; else newUser" class="nav-link dropdown-toggle d-flex align-items-center" href="#"
+              id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0.5rem;">
+
+              <img *ngIf="user?.photoUrl; else defaultImage" [src]="user.photoUrl" alt="Foto usuario"
+                class="rounded-circle me-2" style="width: 40px; height: 40px;" />
+
+              <ng-template #defaultImage>
+                <img src="../../../../assets/images/not-image-profile.png" alt="Imagen por defecto"
+                  class="rounded-circle me-2" style="width: 40px; height: 40px;" />
+              </ng-template>
+
+              <div class="d-flex flex-column">
+                <span class="fw-semibold text-white" style="font-size: 0.9rem;">{{ user.name }}</span>
+                <span class="fw-light text-muted" style="font-size: 0.75rem;">0 Puntos</span>
+              </div>
+            </a>
+
+            <ng-template #newUser>
+              <a routerLink="/auth/signin" class="nav-link custom-link"><strong>Hola, identifícate</strong></a>
+            </ng-template>
+
+            <!-- Menú desplegable -->
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="userDropdown">
+              <li>
+                <a class="dropdown-item" href="/dashboard/portal-usuario">
+                  <i class="bx bx-menu"></i> Menú principal
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <i class="bx bx-help-circle"></i> Ayuda
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <span class="dropdown-item" (click)="logout()">
+                  <i class="bx bx-log-out"></i> Cerrar sesión
+                </span>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

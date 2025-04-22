@@ -1,0 +1,14 @@
+<div class="d-flex gap-2 py-2">
+    <ng-container
+      *ngFor="let starType of stars; let i = index; trackBy: trackByIndex"
+    >
+      <img
+        [src]="getStarImage(starType)"
+        alt="star"
+        (click)="onStarClick(i)"
+        (mouseover)="onStarHover(i)"
+        (mouseleave)="onStarLeave()"
+      />
+    </ng-container>
+  </div>
+  

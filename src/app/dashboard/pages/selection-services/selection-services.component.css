@@ -1,0 +1,20 @@
+.btn {
+  background-color: #242755;
+  border-color: #242755;
+}
+
+.btn:hover {
+  background-color: #b6d055;
+  border-color: #b6d055;
+}
+.selected {
+  background-color: #b6d055;
+  border-color: #b6d055;
+}
+
+@media screen and (max-width: 576px) {
+  .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

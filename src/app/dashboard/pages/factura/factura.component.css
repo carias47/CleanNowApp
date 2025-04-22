@@ -1,0 +1,57 @@
+/* factura.component.css */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 12px; /* Aumentar el espacio interno */
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.custom-table td.subtotal {
+  font-weight: bold;
+  color: #27ae60; /* Color verde para los subtotales */
+}
+
+.custom-table tfoot td {
+  text-align: right;
+}
+
+.custom-table tfoot tr:last-child td {
+  border-top: 2px solid #ddd;
+}
+.btn {
+  background-color: #b6d055;
+  border-color: #b6d055;
+}
+
+.btn:hover {
+  background-color: #242755;
+  border-color: #242755;
+}
+
+/* loader */
+
+.loading-map {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 100vw;
+}

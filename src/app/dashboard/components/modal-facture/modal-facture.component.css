@@ -1,0 +1,18 @@
+#exampleModal {
+  max-height: 85%;
+  margin-top: 6%; /* Puedes ajustar este valor según tus necesidades */
+}
+
+/* Si quieres centrar verticalmente el modal */
+#exampleModal .modal-dialog {
+  display: flex;
+  align-items: center;
+}
+#miModal .modal-body {
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido es demasiado largo */
+}
+.icon {
+  font-size: 24px; /* Puedes ajustar el tamaño según tus necesidades */
+  cursor: pointer; /* Añadir un puntero al hacer hover para indicar que es interactivo */
+  margin-right: 10px; /* Agrega un espacio entre los íconos si lo deseas */
+}

@@ -1,0 +1,5 @@
+.icon {
+  font-size: 24px; /* Puedes ajustar el tamaño según tus necesidades */
+  cursor: pointer; /* Añadir un puntero al hacer hover para indicar que es interactivo */
+  margin-right: 10px; /* Agrega un espacio entre los íconos si lo deseas */
+}

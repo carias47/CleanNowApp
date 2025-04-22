@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>check-svgrepo-com</title>
+    <g id="Web-app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Web-App-5" transform="translate(-601, -1752)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Group-2" transform="translate(413, 1742)">
+                <g id="check-svgrepo-com" transform="translate(188, 10)">
+                    <polygon id="Path" points="12.3834375 17.9708789 9.375 15 7.5 16.875 12.3875391 21.5625 22.5 10.3125 20.6075977 8.4375"></polygon>
+                    <path d="M15,0 C6.71537109,0 0,6.71537109 0,15 C0,23.2846289 6.71537109,30 15,30 C23.2846289,30 30,23.2846289 30,15 C30,6.71537109 23.2846289,0 15,0 Z M15,27.65625 C8.00994141,27.65625 2.34375,21.9900586 2.34375,15 C2.34375,8.00994141 8.00994141,2.34375 15,2.34375 C21.9900586,2.34375 27.65625,8.00994141 27.65625,15 C27.65625,21.9900586 21.9900586,27.65625 15,27.65625 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

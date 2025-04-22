@@ -1,0 +1,8 @@
+.separator {
+  margin: 0 5px;
+  color: #999;
+}
+
+.text-primary:hover {
+  text-decoration: underline;
+}

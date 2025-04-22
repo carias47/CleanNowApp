@@ -1,0 +1,53 @@
+.custom-card {
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;
+    padding: 10px;
+}
+
+.custom-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: #D6F7D0;
+}
+
+.card-title {
+    font-size: 24px;
+}
+
+.card-text {
+    font-size: 18px;
+}
+
+.btn {
+    background-color: #b6d055;
+    color: white;
+    font-size: 18px;
+}
+
+.recommended-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .recommended-badge {
+    padding: 5px 10px;
+    background-color: rgb(36 39 85);
+    color: #fff;
+    border-radius: 5px;
+  }
+  .star{
+    color: yellow;
+  }
+  .recommended-card {
+    border: 1px solid #e0f0f1;
+    border-radius: 10px;
+    background-color: #e0f0f1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;
+    padding: 10px;
+  }
+  

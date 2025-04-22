@@ -1,0 +1,149 @@
+<!-- factura.component.html -->
+
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Unos segundos más...</p>
+</div>
+
+<div *ngIf="!loading" class="container mt-2">
+  <div class="row">
+    <div class="col">
+      <h2>Factura de Servicios</h2>
+    </div>
+  </div>
+
+  <!-- Encabezado de la factura -->
+  <div class="row mt-3">
+    <div class="col mb-3">
+      <h4>Usuario</h4>
+
+      <p>Codigo: {{ headerFactura.servicesHeader.user.id }}</p>
+      <p>Nombre: {{ headerFactura.servicesHeader.user.name }}</p>
+      <p>Correo: {{ headerFactura.servicesHeader.user.email }}</p>
+    </div>
+    <div class="col mb-3">
+      <h4>Información adicional</h4>
+      <p>
+        Fecha: {{ headerFactura.servicesHeader.endDate | date : "dd/MM/yyyy" }}
+      </p>
+      <p>Tipo servicio: {{ headerFactura.servicesHeader.servicesType.name }}</p>
+      <p>Servicio para: {{ headerFactura.servicesHeader.zone }}</p>
+    </div>
+
+    <div class="col mb-3">
+      <h4>Datos del plan</h4>
+      <p>
+        Plan:
+        {{ headerFactura.servicesHeader.plan.namePlan }}
+      </p>
+      <p>
+        Descripción:
+        {{ headerFactura.servicesHeader.plan.description }}
+      </p>
+      <p>
+        Precio plan:
+        {{
+        headerFactura.servicesHeader.plan.price
+        | currency : "COP " : "symbol" : "1.0-0"
+        }}
+      </p>
+    </div>
+    <div class="col mb-2">
+      <h4>Factura Venta {{ headerFactura.servicesHeader.id }}</h4>
+      <p>
+        Valor:
+        {{
+        headerFactura.servicesHeader.value
+        | currency : "COP " : "symbol" : "1.0-0"
+        }}
+      </p>
+      <p>
+        Iva:
+        {{
+        headerFactura.servicesHeader.iva
+        | currency : "COP " : "symbol" : "1.0-0"
+        }}
+      </p>
+      <p>
+        Total a pagar:
+        {{
+        headerFactura.servicesHeader.totalValue
+        | currency : "COP " : "symbol" : "1.0-0"
+        }}
+      </p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Detalles de los servicios -->
+  <div class="row mt-3">
+    <div class="col">
+      <h4>Detalles de los Servicios</h4>
+      <div class="table-responsive">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Descripción del Producto</th>
+              <th>Auxiliar Servicio</th>
+              <th>Cantidad</th>
+              <th>Precio Unitario</th>
+              <th>Descuento</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let detail of detailsFacture; let i = index">
+
+              <td>{{ i + 1 }}</td>
+              <td>{{ detail.servicesHeader.plan.namePlan }}</td>
+              <td>
+                {{ detail.auxiliaries.name }} {{ detail.auxiliaries.lastName }}
+              </td>
+              <td>{{ detail.servicesHeader.plan.days }} días</td>
+              <td>
+                {{ detail.servicesHeader.plan.price | currency : "COP " : "$" : "1.0-0" }}
+              </td>
+              <td>{{ detail.servicesHeader.plan.discount || 0 }}%</td>
+              <td>
+                {{
+                (
+                detail.servicesHeader.plan.price *
+                (1 - (detail.servicesHeader.plan.discount || 0) / 100)
+                ).toFixed(2)
+                }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-map d-flex justify-content-center align-items-center">
+    <div class="text-center">
+      <h3>Espere por favor</h3>
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p>Redireccionando...</p>
+    </div>
+  </div>
+
+  <div class="row mt-3 text-center">
+    <div class="col">
+      <button class="btn btn-primary" (click)="pagar()">
+        <strong>Paga fácil:
+          {{
+
+          headerFactura.servicesHeader.plan.price *
+          (1 - (headerFactura.servicesHeader.plan.discount || 0) / 100)
+          | currency : "COP " : "symbol" : "1.0-0"
+          }}</strong>
+      </button>
+    </div>
+  </div>
+</div>

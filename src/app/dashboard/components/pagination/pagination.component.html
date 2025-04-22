@@ -1,0 +1,39 @@
+<div class="wrapper-page d-flex flex-column min-vh-100">
+  <app-header></app-header>
+
+  <div class="container-xxl flex-grow-1">
+    <div class="progressbar-container py-4">
+      <ul class="progressbar">
+        <li [class.inprogress]="currentPage === 1">Selecciona tu plan</li>
+        <li [class.inprogress]="currentPage === 2">Selecciona tu Auxiliar</li>
+        <li [class.active]="currentPage === 3">Contrata tu servicio</li>
+      </ul>
+    </div>
+
+    <router-outlet *ngIf="!loading"></router-outlet>
+
+    <div *ngIf="loading" class="loading-map d-flex justify-content-center align-items-center">
+      <div class="text-center">
+        <h3>Espere por favor</h3>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p>Cargando...</p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-primary active" *ngIf="currentPage !== 3" (click)="prevPage()"
+        [disabled]="currentPage === 1">
+        Anterior
+      </button>
+      <span *ngIf="currentPage !== 3">{{ currentPage }} de 3</span>
+      <button class="btn btn-primary active" *ngIf="currentPage !== 3" [disabled]="currentPage === 3"
+        (click)="nextPage()">
+        {{ currentPage == 2 ? "Contratar" : "Siguiente" }}
+      </button>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,89 @@
+<div class="table-responsive">
+  <table
+    class="table caption-top"
+    *ngIf="factureData.length !== 0; else divNoData"
+  >
+    <caption>
+      <h4 class="text-center mt-3">Listado de Servicios realizados</h4>
+    </caption>
+    <thead class="text-center">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fecha factura</th>
+        <th scope="col">Fecha solicitud</th>
+        <th scope="col">Fecha pago</th>
+        <th scope="col" class="d-none d-md-table-cell">Metodo pago</th>
+
+        <th scope="col">Tipo servicio</th>
+        <th scope="col">Zona</th>
+        <th scope="col">Subtotal</th>
+        <th scope="col">Iva</th>
+        <th scope="col">Total</th>
+        <th scope="col">State</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let factura of factureData; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ factura.startDate | date : "dd/MM/yyyy" }}</td>
+        <td>{{ factura.dateOfRequest | date : "dd/MM/yyyy" }}</td>
+        <td>{{ factura.paymentDate | date : "dd/MM/yyyy" }}</td>
+        <td class="d-none d-md-table-cell">
+          {{ factura.paymentMethod || "Sin definir" }}
+        </td>
+        <td>{{ factura.servicesType.name }}</td>
+        <td>{{ factura.zone }}</td>
+        <td>{{ factura.value | number : "1.0-0" }}</td>
+        <td>{{ factura.iva | number : "1.0-0" }}</td>
+        <td>{{ factura.totalValue | number : "1.0-0" }}</td>
+        <td>{{ factura.state }}</td>
+        <td class="text-center">
+          <i
+            class="bx bxs-receipt icon"
+            title="Ver factura"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="mostrarDetalle(factura.id)"
+          ></i>
+
+          <i
+            class="bx bxs-calendar-edit icon"
+            data-bs-toggle="modal"
+            data-bs-target="#reagendarFecha"
+            title="Reagendar fecha"
+            (click)="pendingOrders(factura.id)"
+          ></i>
+          <i
+            class="bx bx-checkbox-checked icon"
+            title="Calificar auxiliar"
+            data-bs-toggle="modal"
+            data-bs-target="#calificarModal"
+            (click)="QualificationDetails(factura.id)"
+          ></i>
+          <i class="bx bxs-x-circle icon" title="Cancelar Servicio"></i>
+          <!-- <button
+            class="btn-sm d-sm-none d-md-inline"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="mostrarDetalle(factura.id)"
+          >
+            Detalle
+          </button>
+          <button
+            class="btn-sm d-sm-none d-md-inline"
+           
+          >
+            Calificar
+          </button> -->
+        </td>
+
+        <app-modal-facture></app-modal-facture>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #divNoData>
+  <h3 class="mt-4">No hay órdenes disponibles.</h3>
+</ng-template>

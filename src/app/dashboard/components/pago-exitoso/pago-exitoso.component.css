@@ -1,0 +1,51 @@
+.header {
+  color: #242755;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.contain {
+  margin-top: 30px;
+}
+.mensaje {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.imagen {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.boton {
+  display: inline-block;
+  color: #fff;
+  background-color: #242755;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+.boton:hover {
+  background-color: #242755c9;
+}
+
+.felicidades-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.226);
+}
+.description {
+  color: #2ecc71;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.compra-realizada {
+  font-family: 'Arial', sans-serif;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

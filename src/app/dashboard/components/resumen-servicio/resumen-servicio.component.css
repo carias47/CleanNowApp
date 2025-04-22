@@ -1,0 +1,11 @@
+.resume {
+  box-shadow: rgba(48, 48, 48, 0.1) 0px 4px 8px;
+  z-index: 3;
+  padding: 10px;
+}
+.line {
+  background-color: rgb(48, 48, 48);
+  height: 24px;
+  width: 1px;
+  margin: auto 0px;
+}

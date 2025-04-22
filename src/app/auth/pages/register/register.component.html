@@ -1,0 +1,132 @@
+<!-- registro.component.html -->
+
+<div class="container mt-3">
+  <a class="navbar-brand d-block d-block text-center mb-3" href="#">
+    <img src="./assets/images/limpiafacil_logo_1.svg" width="200px" alt="" />
+  </a>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-7">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Crear cuenta</h3>
+          <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+            <div class="form-group mb-3">
+              <label for="nombre" class="form-label">Tu nombre</label>
+              <input
+                class="form-control"
+                id="nombre"
+                placeholder="Nombres"
+                formControlName="nombre"
+              />
+              <small
+                *ngIf="isNotValidField('nombre')"
+                class="form-text text-danger"
+                >{{ getFieldError("nombre") }}</small
+              >
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="apellido" class="form-label">Tu apellido</label>
+              <input
+                class="form-control"
+                id="apellido"
+                placeholder="Apellidos"
+                formControlName="apellido"
+              />
+              <small
+                *ngIf="isNotValidField('apellido')"
+                class="form-text text-danger"
+                >{{ getFieldError("apellido") }}</small
+              >
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="email" class="form-label">Email </label>
+              <input
+                class="form-control"
+                id="email"
+                placeholder="tu-correo@example.com"
+                formControlName="email"
+              />
+              <small
+                *ngIf="isNotValidField('email')"
+                class="form-text text-danger"
+                >{{ getFieldError("email") }}</small
+              >
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="celular" class="form-label">Celular </label>
+              <input
+                class="form-control"
+                id="celular"
+                placeholder="+57"
+                formControlName="celular"
+              />
+              <small
+                *ngIf="isNotValidField('celular')"
+                class="form-text text-danger"
+                >{{ getFieldError("celular") }}</small
+              >
+            </div>
+
+            <div class="col-auto">
+              <button
+                [disabled]="formulario.invalid"
+                type="submit"
+                class="btn btn-warning w-100"
+              >
+                Crear cuenta
+              </button>
+            </div>
+          </form>
+          <div class="mt-3">
+            <p class="small">
+              Al crear una cuenta, aceptas los
+              <a href="/terminos-y-condiciones" class="text-primary"
+                >Términos y condiciones</a
+              >
+              y las
+              <a href="/politica-de-privacidad" class="text-primary"
+                >Politicas de privacidad</a
+              >
+              de Limpia fácil.
+            </p>
+          </div>
+          <hr />
+          <div class="mt-4">
+            <p class="small">
+              ¿Ya tienes una cuenta?
+              <a routerLink="/auth/signin" class="text-primary"
+                >Iniciar sesión</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr />
+
+      <div class="mb-5 text-center">
+        <p class="small">
+          <a href="/terminos-y-condiciones" class="text-primary"
+            >Terminos y condiciones</a
+          >
+          <span class="separator"> | </span>
+          <a href="/politica-de-privacidad" class="text-primary"
+            >Politicas de privacidad</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="loading-map d-flex justify-content-center align-items-center"
+  *ngIf="loading"
+>
+  <div class="text-center">
+    <h3>Creando cuenta...</h3>
+    <div class="spinner-border" role="status"></div>
+  </div>
+</div>

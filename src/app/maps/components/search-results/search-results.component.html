@@ -1,0 +1,21 @@
+<div *ngIf="isLoadingPlaces"
+class="alert alert-primary mt-2 text-center">
+    <h6>Cargando...</h6>
+    <span>Por favor Espere.</span>
+</div>
+
+<ul class="list-group mt-2" *ngIf="places.length > 0">
+    <li *ngFor="let place of places" 
+     class="list-group-item list-group-item-action pointer"
+     [class.active]="place.id === selectedId"
+     (click)="sendData(place)">
+        <h6>{{place.text_es}}</h6>
+        <p>{{place.place_name}}</p>
+       
+    </li>
+</ul>
+
+<div *ngIf="placesService.noResultsMessage" class="alert alert-warning mt-2 text-center">
+    <h6>Resultado no encontrado</h6>
+    <span>{{ placesService.noResultsMessage }}</span>
+</div>

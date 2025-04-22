@@ -1,0 +1,55 @@
+<!-- Modal -->
+
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-body">
+      <span>¿En qué ciudad quieres contratar tu servicio?</span>
+      <form [formGroup]="myForm">
+        <!-- Departamentos -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label mt-3">Departamentos:</label>
+            <select formControlName="Departamento" class="form-select">
+              <option value="">Seleccione Departamento</option>
+              <option
+                *ngFor="let departamento of departamentos"
+                [value]="departamento.name"
+              >
+                {{ departamento.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Ciudades -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Ciudades:</label>
+            <select formControlName="Ciudad" class="form-select">
+              <option value="">Seleccione Ciudad</option>
+              <option
+                *ngFor="let ciudad of ciudadesByDepartamento"
+                [ngValue]="ciudad"
+              >
+                {{ ciudad.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        Cancelar
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="SaveCiudadSelected()"
+        data-bs-dismiss="modal"
+      >
+        Guardar ubicación
+      </button>
+    </div>
+  </div>
+</div>

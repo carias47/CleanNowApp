@@ -1,0 +1,88 @@
+<main id="main-content" class="py-3 py-lg-5">
+  <div class="container-xxl">
+    <div class="row g-4">
+      <div class="col-12 col-lg-8 pe-xl-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-end">
+          <h2>¡Solicita tu servicio ahora!</h2>
+          <p class="text-custom-green mb-3 fw-bold">Cotiza en tiempo real</p>
+        </div>
+        <hr class="mt-0" />
+        <div class="mt-4">
+          <h4>1. Selecciona una categoría</h4>
+
+          <div class="progressbar">
+            <button class="btn btn-primary btn-lg active" (click)="seleccionarValor(1)"
+              [class.selected]="idCategory === 1">
+              <i class="bx bxs-home"></i> Hogar
+            </button>
+            <button class="btn btn-primary btn-lg inprogress" (click)="seleccionarValor(2)"
+              [class.selected]="idCategory === 2">
+              <i class="bx bxs-store"></i> Pymes
+            </button>
+            <button type="button" class="btn btn-primary btn-lg" (click)="seleccionarValor(3)"
+              [class.selected]="idCategory === 3">
+              <i class="bx bxs-building"></i> Edificios
+            </button>
+          </div>
+
+          <div class="mt-5">
+            <h4>2. Selecciona lugar de destino</h4>
+            <form [formGroup]="myForm">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label class="form-label">Ingrese dirección</label>
+                  <input type="text" placeholder="Tu dirección" />
+                </div>
+                <!-- Departamentos -->
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Departamento</label>
+                  <select formControlName="Departamento" class="form-select" (change)="onDepartChange($event)">
+                    <option value="" disabled>Seleccione Departamento</option>
+                    <option *ngFor="let departamento of departamentos" [value]="departamento?.name">
+                      {{ departamento.name }}
+                    </option>
+                  </select>
+                </div>
+
+                <!-- Ciudades -->
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Ciudad</label>
+                  <select formControlName="Ciudad" class="form-select" (change)="onCiudadChange($event)">
+                    <option value="" disabled>Seleccione Ciudad</option>
+                    <option *ngFor="let ciudad of ciudadesByDepartamento" [value]="ciudad?.name">
+                      {{ ciudad.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="mt-3">
+            <h4>3. Selecciona la fecha del servicio</h4>
+            <div class="d-flex mt-2">
+              <input type="text" id="yourInputId" placeholder="Selecciona el día" [(ngModel)]="myDate" />
+              <input id="startTimeInput" class="form-control ms-2" placeholder="Selecciona hora Inicio"
+                [(ngModel)]="startTime" />
+              <input id="endTimeInput" class="form-control ms-2" placeholder="Selecciona hora Fin"
+                [(ngModel)]="endTime" />
+            </div>
+            <div class="d-flex mt-2">
+              <button type="button" class="btn btn-primary btn-lg" (click)="mostrarFechasSeleccionadas()">
+                <i class="bx bx-calendar-plus"></i>
+                Reservar Fecha
+              </button>
+            </div>
+          </div>
+          <app-table-services></app-table-services>
+        </div>
+      </div>
+
+      <!-- Así va tu servicioo -->
+
+      <div class="col-12 col-lg-4">
+        <app-resumen-servicio></app-resumen-servicio>
+      </div>
+    </div>
+  </div>
+</main>

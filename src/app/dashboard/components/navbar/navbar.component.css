@@ -1,0 +1,68 @@
+/* Estilo de los links */
+.custom-link {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  margin: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-link:hover {
+  color: #e9e9e9;
+}
+
+.custom-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.custom-link:hover::after {
+  width: 100%;
+}
+
+/* Estilo para el hamburger */
+.hamburger {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger ._layer {
+  height: 2px;
+  width: 100%;
+  background: #302c2c;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación del hamburger */
+.navbar-toggler.collapsed .hamburger ._layer {
+  background: #fff;
+}
+
+/* Estilo para el dropdown */
+.dropdown-menu {
+  border-radius: 0.5rem;
+  background-color: #1f1f1f;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dropdown-item {
+  color: #bbb;
+}
+
+.dropdown-item:hover {
+  background-color: #e7ebb1;
+  color: #ffffff;
+}
+

@@ -1,0 +1,16 @@
+<app-loading *ngIf="!isUserLocationReady; else mapaListo"></app-loading>
+
+<ng-template #mapaListo>
+  <div class="search-container">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Buscar Dirección..."
+      #txtQuery
+      (keyup)="onQueryChange(txtQuery.value)"
+      [value]="selectedPlace"
+    />
+    <app-search-results></app-search-results>
+  
+  </div>
+</ng-template>

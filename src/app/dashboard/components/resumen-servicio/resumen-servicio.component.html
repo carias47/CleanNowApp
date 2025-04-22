@@ -1,0 +1,95 @@
+<div class="cumulative-card bg-custom-blue">
+  <h3 class="cumulative-title">Así va tu servicio:</h3>
+  <hr />
+  <h5 class="mb-0">Categoría del servicio:</h5>
+  <p>
+    {{
+    datosSeleccionados?.categoria
+    ? "Servicio para: " + datosSeleccionados?.categoria
+    : "Sin definir..."
+    }}
+  </p>
+
+  <h5 class="mb-0">Dirección para el servicio:</h5>
+
+  <p>
+    {{
+    datosSeleccionados?.destino?.ciudad
+    ? datosSeleccionados?.destino?.departamento
+    ? datosSeleccionados?.destino?.departamento +
+    " - " +
+    datosSeleccionados?.destino?.ciudad
+    : datosSeleccionados?.destino?.ciudad
+    : "Sin definir..."
+    }}
+  </p>
+
+  <div>
+    <h5 class="mb-0">Fechas del servicio:</h5>
+    <span *ngIf="dateToService && dateToService.length > 0; else sinDefinirBlock">
+      <span *ngFor="let fecha of dateToService">
+        <p class="mb-0">
+          {{ fecha.fecha }} De {{ fecha.horaInicio }} A {{ fecha.horaFin }}
+        </p>
+      </span>
+    </span>
+    <ng-template #sinDefinirBlock>
+      <p class="mb-0">Sin definir...</p>
+    </ng-template>
+  </div>
+
+  <div class="mt-2" *ngIf="servicioUrgente?.price > 0">
+    <h5 class="mb-0">Consideraciones adicionales:</h5>
+
+    <ng-container *ngIf="servicioUrgente">
+      Servicio Urgente:
+      <span class="cumulative-price text-custom-green fw-bold">
+        +{{ servicioUrgente.price | currency }}
+      </span>
+    </ng-container>
+  </div>
+
+  <div id="auxiliars" class="mt-2">
+    <h5 class="mb-0">Auxiliares seleccionados:</h5>
+    <div class="mb-0" *ngIf="auxiliaresSeleccionados.length > 0">
+      <div *ngFor="let auxiliar of auxiliaresSeleccionados">
+        <p>
+          {{ auxiliar?.employee?.user?.name }}
+          {{ auxiliar?.employee?.user?.lastName }}
+        </p>
+      </div>
+    </div>
+    <div *ngIf="auxiliaresSeleccionados.length === 0">
+      <p>Sin definir...</p>
+    </div>
+  </div>
+
+  <div class="mt-2" *ngIf="selectedCategories">
+    <h5 class="mb-0">Detalles del servicio</h5>
+    <span>
+      Plan:
+      <strong>{{ this.planSelected?.namePlan }} (ahorras el
+        {{ this.planSelected.discount }}%)</strong>
+    </span>
+    <hr class="mb-2 mt-2" />
+    <div *ngFor="let item of selectedCategories">
+      <ng-container *ngIf="item.active; else additionalService">
+        {{ item.name }}
+      </ng-container>
+      <ng-template #additionalService>
+        {{ item.name }}: (servicio adicional):
+        <span class="cumulative-price text-custom-green fw-bold">{{
+          9000 | currency
+          }}</span>
+      </ng-template>
+    </div>
+  </div>
+
+  <hr />
+  <div class="d-flex justify-content-between">
+    <h5>Total:</h5>
+    <p class="cumulative-price text-custom-green fw-bold">
+      <span> {{ calcularTotal() | currency }} </span>
+    </p>
+  </div>
+</div>

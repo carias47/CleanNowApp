@@ -1,0 +1,41 @@
+<div class="container mt-2" *ngIf="plans; else noPlans">
+  <h2 class="text-center">Planes de Suscripción</h2>
+  <hr />
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-4" *ngFor="let plan of plans">
+      <div
+        class="card custom-card text-center position-relative"
+        [ngClass]="getCardClass(plan)"
+      >
+        <!-- Contenedor adicional para la etiqueta "Recomendado" -->
+        <div class="recommended-label" *ngIf="isPlanRecommended(plan)">
+          <span class="recommended-badge"
+            >Recomendado <i class="bx bxs-star star"></i
+          ></span>
+        </div>
+
+        <div class="card-body">
+          <h2 class="card-title">{{ plan.namePlan | uppercase }}</h2>
+          <p class="card-text">
+            <i class="bx bx-check check-icon"></i> Duración:
+            {{ plan.days }} días
+          </p>
+          <p class="card-text">
+            <i class="bx bx-check check-icon"></i> Descripción:
+            {{ plan.description }}
+          </p>
+          <p class="card-text">
+            <i class="bx bx-check check-icon"></i> Descuento:
+            {{ plan.discount }}%
+          </p>
+          <button class="btn btn-block" (click)="contratarPlan(plan)">
+            Contratar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noPlans>
+  <app-loader></app-loader>
+</ng-template>

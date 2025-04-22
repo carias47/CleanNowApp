@@ -1,0 +1,15 @@
+.input-icon {
+    position: relative;
+}
+
+.input-icon .m-3 {
+    padding-right: 30px; /* Ajusta según el tamaño de tu ícono */
+}
+
+.icon-placeholder {
+    position: absolute;
+    right: 10px; /* Ajusta según necesites */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Asegúrate de que el ícono no interfiera con los clics en el input */
+}
