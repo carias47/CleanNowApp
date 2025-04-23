@@ -13,6 +13,7 @@ yarn-error.log
 
 
 #environment 
+src/environments/
 
 
 # IDEs and editors

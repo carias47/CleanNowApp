@@ -3,8 +3,8 @@ export const environment = {
   // baseUrl: 'https://api.escuelajs.co/api/v1',
   // baseUrl: 'http://pruebas.adnsoftware.com.co/limpiafacil/api',
   // baseUrl: 'https://limpiafacil.app/api/api',
-  baseUrl: process.env.API_URL || 'https://cleannow.up.railway.app/api',
+  baseUrl: 'https://cleannow.up.railway.app/api',
   // baseUrl: 'https://localhost:7108/api',
-  apiKey: process.env.SECRET_KEY || 'pk.eyJ1IjoiY3JpczIyIiwiYSI6ImNsZW9rbjllaDAzZGIzeXF1cXczdzl5aDQifQ.XZNLpL-QPw2kpbKfcsJ3iw',
+  apiKey: 'pk.eyJ1IjoiY3JpczIyIiwiYSI6ImNsZW9rbjllaDAzZGIzeXF1cXczdzl5aDQifQ.XZNLpL-QPw2kpbKfcsJ3iw',
 };
 
