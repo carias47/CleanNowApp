@@ -32,7 +32,7 @@ export class RegisterComponent {
     private authService: AutenticationService,
     private toastr: ToastrService,
     private router: Router
-  ) {}
+  ) { }
 
   isNotValidField(field: string): boolean | null {
     return (
@@ -92,7 +92,7 @@ export class RegisterComponent {
               closeButton: true,
             };
             this.toastr.success(
-              `Bienvenido ${nombre} a Limpia fácil, te enviaremos un correo con los detalles de tu cuenta`,
+              `Bienvenido ${nombre} a Clean Now, te enviaremos un correo con los detalles de tu cuenta`,
               'Usuario creado',
               myConfig
             );

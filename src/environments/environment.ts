@@ -8,3 +8,4 @@ export const environment = {
   apiKey:
     'pk.eyJ1IjoiY3JpczIyIiwiYSI6ImNsZW9rbjllaDAzZGIzeXF1cXczdzl5aDQifQ.XZNLpL-QPw2kpbKfcsJ3iw',
 };
+
