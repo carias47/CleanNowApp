@@ -6,7 +6,7 @@ import {
   Departamentos,
 } from '../interfaces/ubication-response.interface';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { DataResponse } from 'src/app/auth/interfaces/data-response.interface';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class UbicationService {
     city: string;
   } | null>(null);
   currentCity = this.citySource.asObservable();
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getToken() {
     return localStorage.getItem('token');

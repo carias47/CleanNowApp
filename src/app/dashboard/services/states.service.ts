@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class StatesService {
   myApiUrl: string = '/States?countryId=1';
   myApiCitiUrl: string = '/Cities/GetCity';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getStates(): Observable<any> {
     return this.http.get(`${this.myAppUrl}${this.myApiUrl}`);
@@ -21,5 +21,5 @@ export class StatesService {
     return this.http.get(`${this.myAppUrl}${this.myApiCitiUrl}/${parametro}`);
   }
 
- 
+
 }

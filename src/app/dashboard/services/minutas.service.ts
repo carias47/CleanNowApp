@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { MinutaServiceInterface } from '../interfaces/minuta.interface';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { ResultadoCalculo } from '../interfaces/resultadoCalculo.interface';
@@ -13,7 +13,7 @@ export class MinutasService {
   idCharactCity = new BehaviorSubject<number>(0);
   selectedIdCharact = this.idCharactCity.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   postSendMinutas(
     dataSendMinuta: MinutaServiceInterface

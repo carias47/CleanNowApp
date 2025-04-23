@@ -11,7 +11,7 @@ import {
   tap,
   throwError,
 } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { RegistroUsuario } from '../interfaces/register.interface';
 import { Router } from '@angular/router';
 import { DataSharingService } from 'src/app/dashboard/services/data-sharing.service';

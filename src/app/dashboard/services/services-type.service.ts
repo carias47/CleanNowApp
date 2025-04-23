@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class ServicesTypeService {
   myApiUrl: string = '/Services/ServicesType';
   myApiPostUrl: string = '/Services/PostServicesType';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getServicesType(): Observable<any> {
     return this.http.get(`${this.myAppUrl}${this.myApiUrl}`);
